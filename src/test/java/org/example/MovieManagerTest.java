@@ -25,12 +25,14 @@ public class MovieManagerTest {
         Movie[] movies = manager.findAll();
 
         Assertions.assertEquals(3, movies.length);
-        Assertions.assertEquals(3, movies[0].getId());
-        Assertions.assertEquals(2, movies[1].getId());
-        Assertions.assertEquals(1, movies[2].getId());
-        Assertions.assertEquals("Фильм 3", movies[0].getName());
-        Assertions.assertEquals("Фильм 2", movies[1].getName());
-        Assertions.assertEquals("Фильм 1", movies[2].getName());
+
+        int[] expectedMovieIds = {3, 2, 1};
+        String[] expectedMovieNames = {"Фильм 3", "Фильм 2", "Фильм 1"};
+        int[] actualMovieIds = {movies[0].getId(), movies[1].getId(), movies[2].getId()};
+        String[] actualMovieNames = {movies[0].getName(), movies[1].getName(), movies[2].getName()};
+
+        Assertions.assertArrayEquals(expectedMovieIds, actualMovieIds);
+        Assertions.assertArrayEquals(expectedMovieNames, actualMovieNames);
     }
 
     @Test
@@ -41,11 +43,14 @@ public class MovieManagerTest {
 
         Movie[] movies = manager.findLast();
         Assertions.assertEquals(5, movies.length);
-        Assertions.assertEquals(7, movies[0].getId());
-        Assertions.assertEquals(6, movies[1].getId());
-        Assertions.assertEquals(5, movies[2].getId());
-        Assertions.assertEquals(4, movies[3].getId());
-        Assertions.assertEquals(3, movies[4].getId());
+
+        int[] expectedMovieIds = {7, 6, 5, 4, 3};
+        String[] expectedMovieNames = {"Фильм 7", "Фильм 6", "Фильм 5", "Фильм 4", "Фильм 3"};
+        int[] actualMovieIds = {movies[0].getId(), movies[1].getId(), movies[2].getId(), movies[3].getId(), movies[4].getId()};
+        String[] actualMovieNames = {movies[0].getName(), movies[1].getName(), movies[2].getName(), movies[3].getName(), movies[4].getName()};
+
+        Assertions.assertArrayEquals(expectedMovieIds, actualMovieIds);
+        Assertions.assertArrayEquals(expectedMovieNames, actualMovieNames);
     }
 
     @Test
@@ -57,8 +62,14 @@ public class MovieManagerTest {
 
         Movie[] movies = manager.findLast();
         Assertions.assertEquals(2, movies.length);
-        Assertions.assertEquals(7, movies[0].getId());
-        Assertions.assertEquals(6, movies[1].getId());
+
+        int[] expectedMovieIds = {7, 6};
+        String[] expectedMovieNames = {"Фильм 7", "Фильм 6"};
+        int[] actualMovieIds = {movies[0].getId(), movies[1].getId()};
+        String[] actualMovieNames = {movies[0].getName(), movies[1].getName()};
+
+        Assertions.assertArrayEquals(expectedMovieIds, actualMovieIds);
+        Assertions.assertArrayEquals(expectedMovieNames, actualMovieNames);
     }
 
     @Test

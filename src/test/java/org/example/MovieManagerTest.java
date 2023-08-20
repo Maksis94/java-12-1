@@ -23,16 +23,10 @@ public class MovieManagerTest {
         manager.add(movie3);
 
         Movie[] movies = manager.findAll();
-
         Assertions.assertEquals(3, movies.length);
 
-        int[] expectedMovieIds = {3, 2, 1};
-        String[] expectedMovieNames = {"Фильм 3", "Фильм 2", "Фильм 1"};
-        int[] actualMovieIds = {movies[0].getId(), movies[1].getId(), movies[2].getId()};
-        String[] actualMovieNames = {movies[0].getName(), movies[1].getName(), movies[2].getName()};
-
-        Assertions.assertArrayEquals(expectedMovieIds, actualMovieIds);
-        Assertions.assertArrayEquals(expectedMovieNames, actualMovieNames);
+        Movie[] expectedMovies = {movie3, movie2, movie1};
+        Assertions.assertArrayEquals(movies, expectedMovies);
     }
 
     @Test
@@ -44,13 +38,8 @@ public class MovieManagerTest {
         Movie[] movies = manager.findLast();
         Assertions.assertEquals(5, movies.length);
 
-        int[] expectedMovieIds = {7, 6, 5, 4, 3};
-        String[] expectedMovieNames = {"Фильм 7", "Фильм 6", "Фильм 5", "Фильм 4", "Фильм 3"};
-        int[] actualMovieIds = {movies[0].getId(), movies[1].getId(), movies[2].getId(), movies[3].getId(), movies[4].getId()};
-        String[] actualMovieNames = {movies[0].getName(), movies[1].getName(), movies[2].getName(), movies[3].getName(), movies[4].getName()};
-
-        Assertions.assertArrayEquals(expectedMovieIds, actualMovieIds);
-        Assertions.assertArrayEquals(expectedMovieNames, actualMovieNames);
+        Movie[] expectedMovies = {movie7, movie6, movie5, movie4, movie3};
+        Assertions.assertArrayEquals(movies, expectedMovies);
     }
 
     @Test
@@ -63,13 +52,8 @@ public class MovieManagerTest {
         Movie[] movies = manager.findLast();
         Assertions.assertEquals(2, movies.length);
 
-        int[] expectedMovieIds = {7, 6};
-        String[] expectedMovieNames = {"Фильм 7", "Фильм 6"};
-        int[] actualMovieIds = {movies[0].getId(), movies[1].getId()};
-        String[] actualMovieNames = {movies[0].getName(), movies[1].getName()};
-
-        Assertions.assertArrayEquals(expectedMovieIds, actualMovieIds);
-        Assertions.assertArrayEquals(expectedMovieNames, actualMovieNames);
+        Movie[] expectedMovies = {movie7, movie6};
+        Assertions.assertArrayEquals(movies, expectedMovies);
     }
 
     @Test
